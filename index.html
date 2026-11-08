@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Cyber Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBER DEMO</title>
+<style>
+*{box-sizing:border-box}
+body{
+background:#020806;
+color:#00ff88;
+font-family:monospace;
+padding:20px;
+margin:0;
+}
+.container{
+max-width:650px;
+margin:35px auto;
+border:1px solid #00ff88;
+padding:22px;
+box-shadow:0 0 20px #00ff8833;
+}
+h1{text-align:center;letter-spacing:5px}
+.tag{text-align:center;color:#8affbd}
+.line{border-bottom:1px solid #164b32;padding:12px 0}
+.bar{height:8px;background:#164b32;margin-top:8px}
+.fill{height:8px;background:#00ff88;width:0;animation:load 4s infinite alternate}
+@keyframes load{to{width:100%}}
+#terminal{line-height:2;margin-top:20px;min-height:120px}
+.notice{text-align:center;color:#aaffcc;font-size:12px;margin-top:25px}
+</style>
 </head>
 <body>
+<div class="container">
 <h1>CYBER DEMO</h1>
-<p>System scan starting...</p>
+<div class="tag">SIMULATED SECURITY TERMINAL</div>
+<div class="line">SYSTEM STATUS: ONLINE</div>
+<div class="line">DEMO SCAN <div class="bar"><div class="fill"></div></div></div>
+<div id="terminal"></div>
+<div class="notice">SIMULATION ONLY — NO REAL DEVICE ACCESS</div>
+</div>
+<script>
+const messages=[
+"> Initializing demo...",
+"> Checking visual interface...",
+"> Loading simulation modules...",
+"> Running fictional scan...",
+"> Demo completed successfully."
+];
+let i=0;
+function next(){
+if(i<messages.length){
+document.getElementById("terminal").innerHTML+=messages[i]+"<br>";
+i++;
+setTimeout(next,1200);
+}
+}
+next();
+</script>
 </body>
 </html>
